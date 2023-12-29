@@ -1,0 +1,24 @@
+name: Package Auto-StockTrader
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  build-windows:
+    runs-on: windows-latest
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+      with:
+        repository: Prem-ium/Auto-StockTrader
+
+    - name: Install dependencies
+      run: pip install -r requirements.txt
+        
+    - name: Build .side file
+      run: |
+        copy .env.example .env
+        python main.py
+
