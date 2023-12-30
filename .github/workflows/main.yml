@@ -37,9 +37,8 @@ jobs:
         python main.py
 
     - name: Archive production artifacts
-        uses: actions/upload-artifact@v3
-        with:
-          name: dist-without-markdown
-          path: |
-            dist
+      uses: actions/upload-artifact@v3
+      with:
+        path: |
+          dist
 
