@@ -12,7 +12,7 @@ jobs:
     - name: Checkout repository
       uses: actions/checkout@v4
       with:
-        repository: debilin/Auto-StockTrader
+        repository: Prem-ium/Auto-StockTrader
         ref: main
 
     - name: Install dependencies
@@ -28,11 +28,18 @@ jobs:
       run: |
         touch .env
         echo CHASE_AI=[['YOUR','ACCOUNT','NUMBERS','HERE'],['ANOTHER','ACCOUNT','HERE']] >> .env
+        echo FIDELITY_AI=[['YOUR','ACCOUNT','NUMBERS','HERE'],['ANOTHER','ACCOUNT','HERE']] >> .env
         echo CUSTOM_DIR='${{ github.workspace }}\dist' >> .env
         cat .env
 
     - name: Build .side file
       run: |
-        ren .env.example .env.test
         python main.py
+
+    - name: Archive production artifacts
+        uses: actions/upload-artifact@v3
+        with:
+          name: dist-without-markdown
+          path: |
+            dist
 
