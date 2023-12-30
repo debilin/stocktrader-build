@@ -22,7 +22,7 @@ jobs:
         ren .env.example .env
         get-content .env | %{$_ -replace "C:\\Users\\Premium\\Desktop\\CodingProjects\\SeleniumFolder",".\"}
         $pwd
-        PS C:\> Get-ChildItem -Path $pwd -Recurse | Where-Object {$_.PSIsContainer -eq $false}  
+        Get-ChildItem -Path $pwd -Recurse | Where-Object {$_.PSIsContainer -eq $false}  
     
     - name: Build .side file
       run: |
