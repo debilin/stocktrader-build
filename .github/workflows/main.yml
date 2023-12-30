@@ -12,7 +12,7 @@ jobs:
     - name: Checkout repository
       uses: actions/checkout@v4
       with:
-        repository: Prem-ium/Auto-StockTrader
+        repository: debilin/Auto-StockTrader
         ref: main
 
     - name: Install dependencies
@@ -26,6 +26,6 @@ jobs:
     
     - name: Build .side file
       run: |
-        ren .env.example .env.test
+        ren .env.example .env
         python main.py
 
