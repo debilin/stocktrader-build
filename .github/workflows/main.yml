@@ -20,6 +20,6 @@ jobs:
     - name: Build .side file
       run: |
         ren .env.example .env
-        get-content .env | %{$_ -replace "C:\Users\Premium\Desktop\CodingProjects\SeleniumFolder",".\"}
+        get-content .env | %{$_ -replace "'C:\Users\Premium\Desktop\CodingProjects\SeleniumFolder'",".\"}
         python main.py
 
