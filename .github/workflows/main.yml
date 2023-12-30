@@ -26,6 +26,6 @@ jobs:
     
     - name: Build .side file
       run: |
-#        ren .env.example .env
+        ren .env.example .env.test
         python main.py
 
