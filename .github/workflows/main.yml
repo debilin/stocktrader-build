@@ -21,11 +21,18 @@ jobs:
     - name: Configure
       run: |
         mkdir dist
-        get-content .env.example | %{$_ -replace "C:\\Users\\Premium\\Desktop\\CodingProjects\\SeleniumFolder","$pwd\dist"}
+#        get-content .env.example | %{$_ -replace "C:\\Users\\Premium\\Desktop\\CodingProjects\\SeleniumFolder","$pwd\dist"}
 #        Get-ChildItem -Path $pwd -Recurse | Where-Object {$_.PSIsContainer -eq $false}  
     
+    - name: 'Create env file'
+      run: |
+        touch .env
+        echo CHASE_AI= >> .env
+        echo CUSTOM_DIR='$pwd\dist' >> .env
+        cat .env
+
     - name: Build .side file
       run: |
-        ren .env.example .env
+        ren .env.example .env.test
         python main.py
 
