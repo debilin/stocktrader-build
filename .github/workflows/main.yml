@@ -20,8 +20,9 @@ jobs:
     - name: Configure
       run: |
         ren .env.example .env
-        get-content .env | %{$_ -replace "C:\\Users\\Premium\\Desktop\\CodingProjects\\SeleniumFolder",".\"}
-        $pwd
+        Get-Location
+        mkdir dist
+        get-content .env | %{$_ -replace "C:\\Users\\Premium\\Desktop\\CodingProjects\\SeleniumFolder",".\dist"}
         Get-ChildItem -Path $pwd -Recurse | Where-Object {$_.PSIsContainer -eq $false}  
     
     - name: Build .side file
