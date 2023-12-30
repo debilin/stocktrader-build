@@ -20,6 +20,7 @@ jobs:
     - name: Configure
       run: |
         ren .env.example .env
+        Remove-Item -Path .env.example
         Get-Location
         mkdir dist
         get-content .env | %{$_ -replace "C:\\Users\\Premium\\Desktop\\CodingProjects\\SeleniumFolder","$pwd\dist"}
