@@ -17,9 +17,12 @@ jobs:
     - name: Install dependencies
       run: pip install -r requirements.txt
         
-    - name: Build .side file
+    - name: Configure
       run: |
         ren .env.example .env
         get-content .env | %{$_ -replace "C:\\Users\\Premium\\Desktop\\CodingProjects\\SeleniumFolder",".\"}
+        
+    - name: Build .side file
+      run: |
         python main.py
 
