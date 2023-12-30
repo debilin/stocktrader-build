@@ -27,7 +27,7 @@ jobs:
     - name: 'Create env file'
       run: |
         touch .env
-        echo CHASE_AI= >> .env
+        echo CHASE_AI=[['YOUR','ACCOUNT','NUMBERS','HERE'],['ANOTHER','ACCOUNT','HERE']] >> .env
         echo CUSTOM_DIR='$pwd\dist' >> .env
         cat .env
 
